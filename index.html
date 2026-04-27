@@ -2,48 +2,57 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>CSS 圖片樣式作業</title>
     <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
         .container {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 50px 20px;
+            width: 95%;
+            gap: 15px;
         }
 
-        /* 左邊：圓角、維持比例 (No Distortion) */
+        /* 左邊：radius 18px / width 33% / no distortion */
         .img-left {
             width: 33%;
-            height: 300px;
+            height: 300px; /* 設定固定高度才能觀察是否失真 */
             border-radius: 18px;
-            object-fit: cover; /* 關鍵：像作業第一張圖，會裁切兩側但人不變形 */
+            object-fit: cover; /* 關鍵：不失真，會自動裁切 */
         }
 
-        /* 中間：圓形 (Border 150px) */
+        /* 中間：圓形長寬都 150px / 有 border */
         .img-center {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
-            border: 2px solid black;
+            border-radius: 50%; /* 變成圓形 */
+            border: 3px solid #333; /* 黑色邊框 */
             object-fit: cover;
         }
 
-        /* 右邊：寬度 33%、高度 300px、強制填滿 (Distortion) */
+        /* 右邊：with distortion / width 33% / 高 300px */
         .img-right {
             width: 33%;
             height: 300px;
-            object-fit: fill; /* 關鍵：強制拉伸，圖片內容會變扁或變瘦 */
+            object-fit: fill; /* 關鍵：強制填滿，會造成失真變形 */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600" class="img-left" alt="No Distortion">
+        <img src="https://picsum.photos/id/674/600/800" class="img-left" alt="No Distortion">
 
-        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400" class="img-center" alt="Circle">
+        <img src="https://picsum.photos/id/10/300/300" class="img-center" alt="Center Border">
 
-        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600" class="img-right" alt="Distortion">
+        <img src="https://picsum.photos/id/674/600/800" class="img-right" alt="With Distortion">
     </div>
 
 </body>
