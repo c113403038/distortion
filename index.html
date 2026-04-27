@@ -20,12 +20,17 @@
             gap: 10px;
         }
 
-        /* 左邊圖片：寬度 33%、高度 300px、圓角 18px、不失真 */
+        /* 共同樣式 */
+        img {
+            border: 1px solid #ccc; /* 加上淡淡的邊框以便觀察邊界 */
+        }
+
+        /* 左邊圖片：圓角 18px、高度 300px、寬度 33%、不失真 */
         .img-left {
             width: 33%;
             height: 300px;
             border-radius: 18px;
-            object-fit: cover; /* 無失真關鍵 */
+            object-fit: cover; /* 無失真關鍵，會裁切 */
         }
 
         /* 中間圖片：150x150 正圓形、有邊框、不失真 */
@@ -41,18 +46,18 @@
         .img-right {
             width: 33%;
             height: 300px;
-            object-fit: fill; /* 故意造成失真 */
+            object-fit: fill; /* 強制拉伸以造成失真 */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="[attachment_0](attachment)" class="img-left" alt="Eiffel Tower">
+        <img src="https://placehold.jp/16:9/c8a2c8/ffffff/600x338.png?text=Image+1+%28No+Distortion%29" class="img-left" alt="Image 1">
 
-        <img src="[attachment_1](attachment)" class="img-center" alt="Landscape">
+        <img src="https://placehold.jp/1:1/ffeb3b/333333/150x150.png?text=Center" class="img-center" alt="Center Image">
 
-        <img src="[attachment_0](attachment)" class="img-right" alt="Eiffel Tower Distorted">
+        <img src="https://placehold.jp/16:9/c8a2c8/ffffff/600x338.png?text=Image+3+%28Distorted%29" class="img-right" alt="Image 3 Distorted">
     </div>
 
 </body>
