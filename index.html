@@ -2,62 +2,48 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <title>CSS 圖片樣式作業</title>
     <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f5f5f5;
-        }
-
         .container {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            width: 90%;
-            gap: 10px;
+            padding: 50px 20px;
         }
 
-        /* 共同樣式 */
-        img {
-            border: 1px solid #ccc; /* 加上淡淡的邊框以便觀察邊界 */
-        }
-
-        /* 左邊圖片：圓角 18px、高度 300px、寬度 33%、不失真 */
+        /* 左邊：圓角、維持比例 (No Distortion) */
         .img-left {
             width: 33%;
             height: 300px;
             border-radius: 18px;
-            object-fit: cover; /* 無失真關鍵，會裁切 */
+            object-fit: cover; /* 關鍵：像作業第一張圖，會裁切兩側但人不變形 */
         }
 
-        /* 中間圖片：150x150 正圓形、有邊框、不失真 */
+        /* 中間：圓形 (Border 150px) */
         .img-center {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 2px solid #333;
-            object-fit: cover; /* 無失真關鍵 */
+            border: 2px solid black;
+            object-fit: cover;
         }
 
-        /* 右邊圖片：寬度 33%、高度 300px、會失真 */
+        /* 右邊：寬度 33%、高度 300px、強制填滿 (Distortion) */
         .img-right {
             width: 33%;
             height: 300px;
-            object-fit: fill; /* 強制拉伸以造成失真 */
+            object-fit: fill; /* 關鍵：強制拉伸，圖片內容會變扁或變瘦 */
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://placehold.jp/16:9/c8a2c8/ffffff/600x338.png?text=Image+1+%28No+Distortion%29" class="img-left" alt="Image 1">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600" class="img-left" alt="No Distortion">
 
-        <img src="https://placehold.jp/1:1/ffeb3b/333333/150x150.png?text=Center" class="img-center" alt="Center Image">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400" class="img-center" alt="Circle">
 
-        <img src="https://placehold.jp/16:9/c8a2c8/ffffff/600x338.png?text=Image+3+%28Distorted%29" class="img-right" alt="Image 3 Distorted">
+        <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=600" class="img-right" alt="Distortion">
     </div>
 
 </body>
